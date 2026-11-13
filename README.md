@@ -1,4 +1,5 @@
 # Couchbase OneChat · Mobile AI Personalization Demo
+<img width="1280" height="900" alt="image" src="https://github.com/user-attachments/assets/34fabbab-6724-4cdb-bbbf-0291b2959134" />
 
 One chatbot for the whole company. **OneChat** is a mobile assistant for the fictional retailer **Larkfield** that serves three audiences from one app, one knowledge plane and one governed tool set:
 
