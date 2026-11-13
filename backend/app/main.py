@@ -102,8 +102,8 @@ def current_user(authorization: str | None = Header(default=None)) -> str:
 async def index():
     """Landing page: where everything in the demo lives."""
     rows = [
-        ("http://localhost:8083/story", "The story: one chatbot for the whole company, without a model call per question (start here)"),
-        ("http://localhost:8083", "The app in a browser (docker compose service <code>web</code>)"),
+        ("https://localhost:5150/story", "The story: one chatbot for the whole company, without a model call per question (start here)"),
+        ("https://localhost:5150", "The app in a browser (docker compose service <code>web</code>)"),
         ("http://localhost:8202/api/status", "Backend status: export load, Knowledge Base publishing, AOM, Sync Gateway"),
         ("http://localhost:8202/docs", "Backend API (OpenAPI)"),
         ("http://localhost:8202/oc/mcp", "MCP server <code>onechat-services</code> (called by AOM)"),
@@ -116,7 +116,7 @@ async def index():
 <style>body{{font:16px/1.6 Inter,-apple-system,Segoe UI,sans-serif;max-width:860px;margin:48px auto;padding:0 20px;color:#000}}
 h1{{font-weight:600}}a{{color:#EC1218}}code{{background:#F7F7F7;padding:2px 6px;border-radius:6px}}li{{margin:6px 0}}</style></head><body>
 <h1>Couchbase OneChat · demo backend</h1>
-<p>This is the backend. Open the app at <a href="http://localhost:8083">http://localhost:8083</a>.
+<p>This is the backend. Open the app at <a href="https://localhost:5150">https://localhost:5150</a>.
 Loaded export: <b>{STATE.get("export_date") or "loading..."}</b> ({loader.STATUS.get("state")}).</p>
 <ul>{items}</ul></body></html>"""
 

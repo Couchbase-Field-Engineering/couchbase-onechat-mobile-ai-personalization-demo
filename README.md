@@ -25,7 +25,7 @@ The app's structure follows the Princess / Royal Caribbean mobile RAG personaliz
 
 ## How the demo opens
 
-`http://<host>:8083/story` is an eight-chapter story for the room before the live app, about what it costs to run one chatbot for a whole company and how the Couchbase stack cuts that cost.
+`https://<host>:5150/story` is an eight-chapter story for the room before the live app, about what it costs to run one chatbot for a whole company and how the Couchbase stack cuts that cost.
 
 1. **Title.** One chatbot for customers, prospects and team members.
 2. **Four jobs.** The four use-case areas, usually four separate bots.
@@ -185,11 +185,19 @@ Configure an LLM provider key in AOM to get generated answers. Without one, AOM 
 
 | Port | Service |
 |---|---|
-| `8083` | **The app in a browser**, inside a phone frame (`?frame=0` for full width), and the story at `/story` |
+| `5150` | **The app in a browser** over HTTPS, behind the sign-in page, inside a phone frame (`?frame=0` for full width), and the story at `/story` |
 | `8202` | Backend API + MCP server (`/oc/mcp`); `/` lists every link |
 | `4988` | Sync Gateway public, which is what phones replicate with: `ws://<host>:4988/onechat` |
 | `127.0.0.1:4989` | Sync Gateway admin |
 | `127.0.0.1:18093` | Couchbase Web Console (Administrator / password123) |
+
+**Sign-in and HTTPS.** The browser UI (the app, the story page and everything else the `web` container serves) is on **`https://<host>:5150`** and opens on a sign-in page:
+
+| Username | Password |
+|---|---|
+| `demo` | `Couchbase123!` |
+
+Change them with `DEMO_USERNAME` / `DEMO_PASSWORD` in `.env` (Compose) or `web.auth.username` / `web.auth.password` (Helm). The container serves a self-signed certificate it generates on first start, so the browser warns once; add the address people use to `TLS_HOSTS` (Compose) so it is in the certificate, or serve a real one by mounting `tls.crt` / `tls.key` at `/etc/nginx/tls` (Helm: `web.tls.secretName`). Plain `http://` on the same port redirects to HTTPS, and `/signout` ends the session. The sign-in covers the browser UI only: the backend API and Sync Gateway ports are unchanged.
 
 The ports are chosen so this stack runs alongside AOM and the Royal Caribbean (8081 / 8200 / 4984) and Princess (8082 / 8201 / 4986) demos.
 
@@ -217,7 +225,7 @@ AOM_ADMIN_PASSWORD='<12+ characters>' ./deploy/k8s/deploy.sh          # MOTHER=e
 AOM_ADMIN_PASSWORD='<current AOM password>' ONLY=onechat ./deploy/k8s/deploy.sh   # AOM is already there
 ```
 
-It builds the images, copies them over SSH into K3s's containerd, and runs `helm upgrade --install` for [`helm/onechat-app`](helm/onechat-app) with [`deploy/k8s/values-mother.yaml`](deploy/k8s/values-mother.yaml), which publishes **8083 / 8202 / 4988**. In the cluster the backend registers itself with AOM (`AOM_AUTO_REGISTER=true`): it adds the MCP server, issues both agent identities, turns on the approval tier and publishes the Knowledge Base and RAG applications. Progress is in `/api/status` under `aom.registration`. A CronJob writes a new export partition every morning and the backend picks it up.
+It builds the images, copies them over SSH into K3s's containerd, and runs `helm upgrade --install` for [`helm/onechat-app`](helm/onechat-app) with [`deploy/k8s/values-mother.yaml`](deploy/k8s/values-mother.yaml), which publishes **5150 / 8202 / 4988**. In the cluster the backend registers itself with AOM (`AOM_AUTO_REGISTER=true`): it adds the MCP server, issues both agent identities, turns on the approval tier and publishes the Knowledge Base and RAG applications. Progress is in `/api/status` under `aom.registration`. A CronJob writes a new export partition every morning and the backend picks it up.
 
 `deploy/k8s/deploy-on-mother.sh` does the same from a clone on the node itself; `deploy/k8s/diagnose.sh` prints the state of every piece.
 
