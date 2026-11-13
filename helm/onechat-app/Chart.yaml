@@ -1,0 +1,13 @@
+apiVersion: v2
+name: onechat-app
+description: >-
+  Couchbase OneChat mobile demo on Kubernetes: Couchbase Server
+  (customer, prospect and team-member profiles from the nightly export), Sync
+  Gateway (Couchbase Lite replication for phones), the backend (FastAPI + the
+  onechat-services MCP server, which registers itself with the Couchbase Agent
+  Operations Manager), the app in a browser, and a daily CronJob that drops a
+  new mock export.
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+keywords: [couchbase, couchbase-lite, sync-gateway, mcp, rag, chatbot, personalization]
