@@ -53,7 +53,7 @@ export default function Login() {
       <ScrollView contentContainerStyle={[styles.wrap, { paddingTop: insets.top + 28, paddingBottom: insets.bottom + 24 }]} keyboardShouldPersistTaps="handled">
         <Wordmark height={22} />
         <View style={{ marginTop: 26, gap: 10 }}>
-          <Eyebrow color={theme.color.onDark}>One chatbot. The whole company.</Eyebrow>
+          <Eyebrow color={theme.color.onDark}>One chatbot, with personalized context for everyone.</Eyebrow>
           <Text style={styles.hero}>Ask once.{'\n'}Get the right answer.</Text>
           <Text style={styles.sub}>
             Support, orders, sales and the internal help desk in one assistant - grounded in your own data, governed, and still answering when you're offline.
