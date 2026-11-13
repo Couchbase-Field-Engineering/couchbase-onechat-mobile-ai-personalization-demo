@@ -19,8 +19,6 @@ Under it sits the Couchbase stack: **Couchbase Lite** on the phone, **Sync Gatew
 * every action (returns, checkout, consultations, IT tickets, time off, benefits) runs as an RBAC-checked, traced and audited AOM **tool call**, with human approval for goodwill credits and privileged access
 * a second agent, the **OneChat Returns Agent**, handles returns with a narrower tool scope and **Agent Memory**
 
-The app's structure follows the Princess / Royal Caribbean mobile RAG personalization demos and [Fujio-Turner/mobile_field_service](https://github.com/Fujio-Turner/mobile_field_service): Expo / React Native, Couchbase Lite via `cbl-reactnative`, and a browser preview engine that syncs the same documents over REST. The look follows couchbase.com: black, white and Couchbase red, with the Couchbase logo.
-
 ---
 
 ## How the demo opens
