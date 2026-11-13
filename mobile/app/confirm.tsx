@@ -16,7 +16,7 @@ const TOOL: Record<string, { label: string; note: string }> = {
   submit_lead_details: { label: 'Share details', note: 'Used to size your quote and assign a specialist.' },
   reset_password: { label: 'Reset password', note: "You'll approve a prompt in your authenticator app, then choose a new password within 15 minutes." },
   request_system_access: { label: 'Request access', note: 'A standard system: granted as soon as the request is processed.' },
-  request_privileged_access: { label: 'Request privileged access', note: "This system holds customer, financial or production data. Your request is held for approval in AOM before access is granted." },
+  request_privileged_access: { label: 'Request privileged access', note: "This system holds customer, financial or production data. Your request is held for approval in Couchbase Labs Agent Operations Manager before access is granted." },
   complete_onboarding_task: { label: 'Complete task', note: 'Marked complete on your onboarding checklist.' },
   request_time_off: { label: 'Request time off', note: 'Goes to your manager for approval.' },
   enroll_benefits: { label: 'Enroll in benefits', note: 'Coverage starts the first of next month.' },

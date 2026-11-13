@@ -148,7 +148,7 @@ export type ActionRequest = {
   charge_usd?: number;
   governed?: boolean;
   trace_id?: string | null;
-  /** AOM agent identity that ran it: the assistant, or the Returns Agent for returns and credits. */
+  /** Couchbase Labs Agent Operations Manager agent identity that ran it: the assistant, or the Returns Agent for returns and credits. */
   agent?: 'onechat-assistant' | 'onechat-returns-agent' | string;
   memories_recalled?: number;
   remembered?: boolean;

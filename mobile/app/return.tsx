@@ -13,7 +13,7 @@ import { RequestTracker } from '@/src/ui/RequestTracker';
 /**
  * Returns and exchanges. The options come from the For You feed's return card
  * (or the cached return context), so the whole flow works offline. Confirm
- * creates a `start_return` request, which the Returns Agent runs through AOM.
+ * creates a `start_return` request, which the Returns Agent runs through Couchbase Labs Agent Operations Manager.
  */
 export default function ReturnScreen() {
   const params = useLocalSearchParams<{ order_id?: string; sku?: string; resolution?: string; exchange_sku?: string }>();
@@ -101,7 +101,7 @@ export default function ReturnScreen() {
               <View style={{ marginTop: 14 }}>
                 <Button label={mode === 'exchange' ? 'Confirm exchange' : 'Confirm return'} icon="checkmark" disabled={!ready} onPress={() => void submit()} />
               </View>
-              <Text style={form.tiny}>Confirm hands this to the Returns Agent through Couchbase AOM. {OFFLINE_NOTE}</Text>
+              <Text style={form.tiny}>Confirm hands this to the Returns Agent through Couchbase Labs Agent Operations Manager. {OFFLINE_NOTE}</Text>
             </>
           ) : null}
         </>

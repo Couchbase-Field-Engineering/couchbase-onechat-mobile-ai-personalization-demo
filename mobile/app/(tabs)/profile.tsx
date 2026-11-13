@@ -94,11 +94,11 @@ export default function Profile() {
         </View>
       </Card>
 
-      <SectionTitle title="Agent Operations Manager" />
+      <SectionTitle title="Couchbase Labs Agent Operations Manager" />
       <Card style={{ padding: 16, gap: 8 }}>
         <Text style={styles.meta}>
-          Everything you confirm here becomes a request that an agent runs through Couchbase AOM: RBAC and tool scope, human approval for goodwill
-          credits and privileged access, a trace and an audit entry. Returns run as the Returns Agent, with Agent Memory. Answers use AOM's
+          Everything you confirm here becomes a request that an agent runs through Couchbase Labs Agent Operations Manager: RBAC and tool scope, human approval for goodwill
+          credits and privileged access, a trace and an audit entry. Returns run as the Returns Agent, with Agent Memory. Answers use Couchbase Labs Agent Operations Manager's
           Knowledge Base, Context Cache and LLM Cache.
         </Text>
         <Field icon="link-outline" label="Backend" value={API_URL} />
